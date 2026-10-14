@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary-navy: #0A192F;
+  --navy-dark: #060D1A;
+  --navy-surface: #10233F;
+  --industrial-blue: #1D4ED8;
+  --industrial-blue-hover: #1E40AF;
+  --accent-gold: #D97706;
+  --accent-gold-hover: #B45309;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom smooth transitions for interactive components */
+button, a, input, select, textarea {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Visible focus rings for accessibility */
+:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* Print optimizations & anti-misconduct watermark */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body::before {
+    content: "LUMER LABS — TOGS EXPORTS PROPRIETARY CONCEPT DEMONSTRATION";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    font-size: 36pt;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 9999;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+}
